@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\dev\\Testes\\BarcodeTesteSln\\BarcodeScanner\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{C21F8F97-6561-4AA1-BE19-964CFB377BFA}|BarcodeTeste\\BarcodeTeste.csproj|c:\\dev\\testes\\barcodetestesln\\barcodescanner\\barcodeteste\\barcodeteste.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{C21F8F97-6561-4AA1-BE19-964CFB377BFA}|BarcodeTeste\\BarcodeTeste.csproj|solutionrelative:barcodeteste\\barcodeteste.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "BarcodeTeste",
+              "DocumentMoniker": "C:\\dev\\Testes\\BarcodeTesteSln\\BarcodeScanner\\BarcodeTeste\\BarcodeTeste.csproj",
+              "RelativeDocumentMoniker": "BarcodeTeste\\BarcodeTeste.csproj",
+              "ToolTip": "C:\\dev\\Testes\\BarcodeTesteSln\\BarcodeScanner\\BarcodeTeste\\BarcodeTeste.csproj",
+              "RelativeToolTip": "BarcodeTeste\\BarcodeTeste.csproj",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAB8AAAAMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-06-18T17:48:19.462Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

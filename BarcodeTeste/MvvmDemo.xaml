@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="BarcodeTeste.MvvmDemo"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:gv="clr-namespace:BarcodeScanner.Mobile;assembly=BarcodeScanner.Mobile.Maui"
+    xmlns:mvvm="clr-namespace:BarcodeTeste"
+    Title="MvvmDemo">
+    <ContentPage.BindingContext>
+        <mvvm:MvvmDemoViewModel />
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="30" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="30" />
+            </Grid.ColumnDefinitions>
+            <StackLayout
+                Grid.Row="0"
+                Grid.ColumnSpan="3"
+                HorizontalOptions="FillAndExpand"
+                IsVisible="False"
+                Orientation="Vertical">
+
+                <Button
+                    x:Name="FlashlightButton"
+                    BackgroundColor="#0075FF"
+                    Command="{Binding HandleFlashlightCommand}"
+                    CornerRadius="0"
+                    HorizontalOptions="FillAndExpand"
+                    TextColor="White">
+                    <Button.Triggers>
+                        <DataTrigger
+                            Binding="{Binding TorchOn}"
+                            TargetType="Button"
+                            Value="True">
+                            <Setter Property="Text" Value="Set Torch Off" />
+                        </DataTrigger>
+                        <DataTrigger
+                            Binding="{Binding TorchOn}"
+                            TargetType="Button"
+                            Value="False">
+                            <Setter Property="Text" Value="Set Torch On" />
+                        </DataTrigger>
+                    </Button.Triggers>
+                </Button>
+                <Button
+                    x:Name="VibrationButton"
+                    BackgroundColor="#FF93FF"
+                    Command="{Binding HandleVirbationCommand}"
+                    CornerRadius="0"
+                    HorizontalOptions="FillAndExpand"
+                    TextColor="White">
+                    <Button.Triggers>
+                        <DataTrigger
+                            Binding="{Binding VibrationOnDetected}"
+                            TargetType="Button"
+                            Value="True">
+                            <Setter Property="Text" Value="Set Vibration Off" />
+                        </DataTrigger>
+                        <DataTrigger
+                            Binding="{Binding VibrationOnDetected}"
+                            TargetType="Button"
+                            Value="False">
+                            <Setter Property="Text" Value="Set Vibration On" />
+                        </DataTrigger>
+                    </Button.Triggers>
+                </Button>
+                <Button
+                    x:Name="IsScanningButton"
+                    BackgroundColor="#000000"
+                    Command="{Binding HandleIsScanningCommand}"
+                    CornerRadius="0"
+                    HorizontalOptions="FillAndExpand"
+                    TextColor="White">
+                    <Button.Triggers>
+                        <DataTrigger
+                            Binding="{Binding IsScanning}"
+                            TargetType="Button"
+                            Value="True">
+                            <Setter Property="Text" Value="Stop Scanning" />
+                        </DataTrigger>
+                        <DataTrigger
+                            Binding="{Binding IsScanning}"
+                            TargetType="Button"
+                            Value="False">
+                            <Setter Property="Text" Value="Start Scanning" />
+                        </DataTrigger>
+                    </Button.Triggers>
+                </Button>
+                <Label Text="Scan Interval (ms)" />
+                <Entry
+                    Keyboard="Numeric"
+                    Placeholder="Scan interval (ms)"
+                    Text="{Binding ScanInterval}" />
+            </StackLayout>
+            <!--  Fill the screen with CameraView  -->
+            <gv:CameraView
+                x:Name="Camera"
+                Grid.Row="1"
+                Grid.Column="1"
+                CameraFacing="Front"
+                IsScanning="{Binding IsScanning}"
+                OnDetectedCommand="{Binding OnDetectCommand}"
+                ScanInterval="{Binding ScanInterval}"
+                TorchOn="False"
+                VibrationOnDetected="{Binding VibrationOnDetected}" />
+            <!--  Customized Size  -->
+            <!--<gv:CameraView HorizontalOptions="Center" WidthRequest="200" HeightRequest="200" OnDetected="CameraView_OnDetected" Grid.Row="1"/>-->
+            <StackLayout
+                Grid.Row="2"
+                Grid.ColumnSpan="3"
+                HeightRequest="120">
+                <Label Text="Result" TextColor="Red" />
+                <Label Text="{Binding Result}" TextColor="Black" />
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
